@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>RTCCrystalFrequencyOutput</name>
+            <name>attiny817-rtc-crystal-frequency-output-mplab</name>
             <creation-uuid>6d5bfa70-5266-4eb5-a5ba-224ba5dc57b3</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
