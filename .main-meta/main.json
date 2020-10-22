@@ -3,7 +3,7 @@
     "category": "com.microchip.ide.project",
     "content": {
         "metaDataVersion": "1.1.0",
-        "name": "com.microchip.mcu8.mplab.project.attiny817-rtc-crystal-frequency-output-mplab",
+        "name": "com.microchip.mcu8.mplabx.project.attiny817-rtc-crystal-frequency-output-mplab",
         "version": "1.0.0",
         "displayName": "RTC Crystal Frequency Output",
         "projectName": "attiny817-rtc-crystal-frequency-output-mplab",
@@ -44,7 +44,7 @@
             ],
             [
                 "Peripherals",
-                "Oscillator/Clock"
+                "CLKCTRL"
             ],
             [
                 "Development Kit",
@@ -53,11 +53,9 @@
         ],
         "peripherals": [
             "RTC",
-            "Oscillator/Clock"
+            "CLKCTRL"
         ],
         "keywords": [
-            "",
-            ""
         ],
         "additionalData": {
             "longDescription": {
