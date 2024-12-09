@@ -4,27 +4,27 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.attiny817-rtc-crystal-frequency-output-mplab",
-        "version": "1.0.1",
+        "version": "2.0.0",
         "displayName": "RTC Crystal Frequency Output",
         "projectName": "attiny817-rtc-crystal-frequency-output-mplab",
         "shortDescription": "This code example will show how to output a crystal clock on a pin by using two functions available in the code. The system clock will not be changed.",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=5.40.0"
+            "semverRange": ">=6.20.0"
         },
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.29.0"
+                "semverRange": "^2.50.0"
             }
         ],
         "dfp": {
             "name": "ATtiny_DFP",
-            "semverRange": "^2.2.89"
+            "semverRange": "^3.1.260"
         },
         "configurator": {
-            "name": "N/A",
-            "semverRange": " "
+            "name": "MCC",
+            "semverRange": ">=5.5.1"
         },
         "device": {
             "metaDataVersion": "1.0.0",

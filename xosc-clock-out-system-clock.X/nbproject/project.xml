@@ -3,23 +3,15 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>attiny817-rtc-crystal-frequency-output-mplab</name>
-            <creation-uuid>6d5bfa70-5266-4eb5-a5ba-224ba5dc57b3</creation-uuid>
+            <name>xosc-clock-out-system-clock</name>
+            <creation-uuid>fa14ad4c-afd1-4dc2-9135-19ab28737078</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions>c</c-extensions>
-            <cpp-extensions/>
-            <header-extensions>h</header-extensions>
-            <asminc-extensions/>
-            <sourceEncoding>UTF-8</sourceEncoding>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
                 <confElem>
-                    <name>free</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
-                    <name>pro</name>
+                    <name>default</name>
                     <type>2</type>
                 </confElem>
             </confList>

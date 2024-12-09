@@ -3,9 +3,9 @@
 
 # RTC Crystal Frequency Output
 
-This application will output the crystal clock on a pin. Two functions are made available to accomplish this. The xosc_clock_out_system_clock function will change the system clock source to the 32.768 kHz crystal and use the clock out pin (PB5). The xosc_clock_out_evsys_rtc function will output the crystal frequency divided by 64 using the Peripheral Interrupt Timer (PIT) and the Event System on pin PA2. The system clock will not be switched to 32.768 kHz.
+The projects in this repository will output the crystal clock on a pin. Two projects are made available to accomplish this. The xosc-clock-out-system-clock project will change the system clock source to the 32.768 kHz crystal and use the clock out pin (PB5). The xosc-clock-out-evsys-rtc project will output the crystal frequency divided by 64 using the Peripheral Interrupt Timer (PIT) and the Event System on pin PA2, without switching the system clock to 32.768 kHz.
 
-This example is based on the Application Note [AN2711 - Real-Time Clock Calibration and Compensation on AVR® Microcontrollers](https://www.microchip.com/DS00002711), which should be referred to for a more detailed understanding of the concepts.
+These examples are based on the Application Note [AN2711 - Real-Time Clock Calibration and Compensation on AVR® Microcontrollers](https://www.microchip.com/DS00002711), which should be referred to for a more detailed understanding of the concepts.
 
 ## Related Documentation
 
@@ -14,11 +14,9 @@ This example is based on the Application Note [AN2711 - Real-Time Clock Calibrat
 
 ## Software Used
 
-- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) 5.40 or later
-- [ATtiny DFP](http://packs.download.atmel.com/) 2.2.89 or later
-- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) 2.20 or a later
-- [AVR/GNU C Compiler](https://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers) 5.4.0 or later
-
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.20 or newer
+- [ATtiny DFP](http://packs.download.atmel.com/) v3.1.260 or newer
+- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.50 or a newer
 
 ## Hardware Used
 
@@ -28,6 +26,46 @@ This example is based on the Application Note [AN2711 - Real-Time Clock Calibrat
 ## Setup
 
 1. The crystal on the ATtiny817 Xplained Pro board is by default not connected to the TOSC pins, as they are used for UART communication. To connect the pins, remove resistors R307 and R308 and place them on the footprints of R312 and R313. Refer to [ATtiny817 Xplained Pro User's Guide](https://www.microchip.com/DS50002684) for more information on how to do this.
+
+## XOSC clock out system clock
+
+This project changes the system clock source to the 32.768 kHz crystal and use the clock out pin (PB5).
+
+### MCC setup
+
+#### CLKCTRL
+
+Change the Clock Source Selection to 32.768kHz external crystal oscillator and disable the Prescaler enable. Enable System clock out, Enable 32.768kHz Crystal Oscillator Control A and Run standby 32.768kHz Crystal Oscillator Control A. Set Crystal startup time to 64K.
+
+<p><img src="images/system_clock_mcc_clkctrl.jpg" width="600"/></p>
+
+## XOSC clock out evsys rtc
+
+This project will output the crystal frequency divided by 64 using the Peripheral Interrupt Timer (PIT) and the Event System on pin PA2, without switching the system clock to 32.768 kHz. With this setup the system clock can be different from the outputed clock.
+
+### MCC setup
+
+An overview of the MCC setup is shown in the image below:
+
+<p><img src="images/mcc_overview.jpg" width="600"/></p>
+
+#### CLKCTRL
+
+Enable Enable 32.768kHz Crystal Oscillator Control A and Run standby 32.768kHz Crystal Oscillator Control A. Set Crystal startup time to 64K.
+
+<p><img src="images/evsys_rtc_mcc_clkctrl.jpg" width="600"/></p>
+
+#### RTC
+
+In the RTC peripheral, disable Enable RTC and OverFlow Interrupt Enable as the PIT timer is the only one used and they RTC and PIT timers can be enabled seperately. Set the RTC Clock Source Selection to 32KHz Crystal OSC. Enable PIT Enable.
+
+<p><img src="images/evsys_rtc_mcc_rtc.jpg" width="600"/></p>
+
+#### EVSYS
+
+In the EVSYS peripheral connect GENERATORS>ASYNCCH3>PIT_DIV64 to the CHANNELS>ASYNCCH3, then further connect CHANNELS>ASYNCCH3 to USERS>Event Out 0. MCC will then connect that to the PA2 pin as output.
+
+<p><img src="images/evsys_rtc_mcc_evsys.jpg" width="600"/></p>
 
 ## Operation
 
@@ -41,4 +79,4 @@ This example is based on the Application Note [AN2711 - Real-Time Clock Calibrat
 
 ## Conclusion
 
-This example has now illustrated how you can output the crystal clock on a pin.
+These examples have now illustrated how you can output the crystal clock on a pin.
