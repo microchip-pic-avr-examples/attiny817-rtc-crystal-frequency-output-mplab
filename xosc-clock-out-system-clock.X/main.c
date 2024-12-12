@@ -41,7 +41,9 @@
 int main(void)
 {
     SYSTEM_Initialize();
-    
+    /*
+      MCC's initialization function configures everything so main is left empty
+     */
     while(1)
     {
     }
